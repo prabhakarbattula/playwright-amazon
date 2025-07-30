@@ -1,0 +1,6 @@
+{
+  "brands": ["Noise", "boAt", "Fire-Boltt", "Fastrack"],
+  "priceFilter": { "min": 1000, "max": 5000 },
+  "searchKeyword": "smartwatches",
+  "baseUrl": "https://www.amazon.in"  
+}
