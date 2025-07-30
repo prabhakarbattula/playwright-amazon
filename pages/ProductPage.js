@@ -12,7 +12,11 @@ class ProductPage {
   }
 
   async validateCartCount(minCount = 1) {
-    const count = parseInt(await this.cartBadge.innerText());
+    if (await this.page.getByRole('button', { name: 'Skip' }).isVisible({ timeout: 2000 }).catch(() => false)) {      
+      await this.page.getByRole('button', { name: 'Skip' }).click()
+      await this.page.waitForTimeout(3000)
+    }    
+    const count = parseInt(await this.cartBadge.innerText({timeout: 5000}));
     expect(count).toBeGreaterThanOrEqual(minCount);
   }
 }
